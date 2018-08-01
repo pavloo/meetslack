@@ -1,0 +1,16 @@
+{
+  "name": "MeetSlack",
+  "version": "0.1",
+  "description": "Google's Meet integration with Slack",
+  "background": {
+    "scripts": ["shared.js", "background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["shared.js", "contentScript.js"]
+    }
+  ],
+  "manifest_version": 2
+}
