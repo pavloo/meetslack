@@ -12,5 +12,8 @@
       "js": ["shared.js", "contentScript.js"]
     }
   ],
+  "permissions": [
+    "tabs"
+  ],
   "manifest_version": 2
 }

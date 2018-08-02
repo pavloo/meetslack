@@ -25,6 +25,14 @@ function handleSlackAPIError(url, json) {
   };
 }
 
+function wait(ms) {
+  return (...args) => {
+    return new Promise((resolve, _) => {
+      setTimeout(() => resolve(...args), ms);
+    });
+  };
+}
+
 function setSlackStatus(slackToken, statusText, statusEmoji)  {
   const statusBody = {
     token: slackToken,
@@ -37,11 +45,15 @@ function setSlackStatus(slackToken, statusText, statusEmoji)  {
   let previousStatusText = '';
   let previousStatusEmoji = '';
 
-  return fetch(
-    appendParamsToUrl(SLACK_GET_USER_PROFILE, { token: slackToken })
-  )
+  return wait(2000)()
+    .then(() => {
+      return fetch(
+        appendParamsToUrl(SLACK_GET_USER_PROFILE, { token: slackToken })
+      );
+    })
     .then(resp => resp.json())
     .then(handleSlackAPIError(SLACK_GET_USER_PROFILE))
+    .then(wait(2000))
     .then((json) => {
       previousStatusText = json.profile['status_text'];
       previousStatusEmoji = json.profile['status_emoji'];
