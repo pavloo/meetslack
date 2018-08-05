@@ -17,8 +17,9 @@
     "declarativeContent",
     "storage"
   ],
+  "options_page": "options.html",
   "page_action": {
-    "default_popup": "popup.html"
+    "default_popup": "options.html"
   },
   "manifest_version": 2
 }

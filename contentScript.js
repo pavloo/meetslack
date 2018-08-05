@@ -1,4 +1,4 @@
-const slackToken = '';
+const slackToken = 'xoxp-2226351944-2730345659-408454310292-c8798a4f46e4d9dd1513ad2fbdeb520c';
 
 setSlackStatus(slackToken, 'Google Meet', ':slack_call:').then((obj) => {
   chrome.runtime.sendMessage({
@@ -8,7 +8,6 @@ setSlackStatus(slackToken, 'Google Meet', ':slack_call:').then((obj) => {
 });
 
 function pollForPresenting() {
-  console.log(document.querySelectorAll(SHARE_SCREEN_SELECTOR));
   if (document.querySelectorAll(SHARE_SCREEN_SELECTOR).length > 0) {
     setDndFor(slackToken, 2); // set snooze notifications for 2 mins
   } else {
