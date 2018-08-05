@@ -13,7 +13,12 @@
     }
   ],
   "permissions": [
-    "tabs"
+    "tabs",
+    "declarativeContent",
+    "storage"
   ],
+  "page_action": {
+    "default_popup": "popup.html"
+  },
   "manifest_version": 2
 }

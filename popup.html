@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+     body {
+       width: 300px;
+     }
+     .field_group:nth-child(2) {
+       margin-top: 10px;
+     }
+    </style>
+  </head>
+  <body>
+    <script scr="popup.js"></script>
+
+    <fieldset>
+      <legend>Settings</legend>
+      <div>
+        <div class="field_group">
+          <input type="checkbox" id="snooze" name="set_snooze" value="is_snoozing"/>
+          <label for="snooze">Set Snooze notifications when screensharing</label>
+        </div>
+
+        <div class="field_group">
+          <label for="horns">Slack Token</label>
+          <input type="text" placeholder="xoxp-..." />
+        </div>
+      </div>
+    </fieldset>
+
+  </body>
+</html>

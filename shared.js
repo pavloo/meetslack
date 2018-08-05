@@ -2,6 +2,8 @@ const SLACK_SET_STATUS_URL = 'https://slack.com/api/users.profile.set';
 const SLACK_GET_USER_PROFILE = 'https://slack.com/api/users.profile.get';
 const SLACK_SET_DND = 'https://slack.com/api/dnd.setSnooze';
 const SLACK_SET_DND_END = 'https://slack.com/api/dnd.endDnd';
+// this is magic selector which meet set's for div
+// that appears when the user is sharing the screen
 const SHARE_SCREEN_SELECTOR = '.fh0rdc';
 const POLL_PERIOD_MS = 5000;
 
