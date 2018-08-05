@@ -1,5 +1,9 @@
 const SLACK_SET_STATUS_URL = 'https://slack.com/api/users.profile.set';
 const SLACK_GET_USER_PROFILE = 'https://slack.com/api/users.profile.get';
+const SLACK_SET_DND = 'https://slack.com/api/dnd.setSnooze';
+const SLACK_SET_DND_END = 'https://slack.com/api/dnd.endDnd';
+const SHARE_SCREEN_SELECTOR = '.fh0rdc';
+const POLL_PERIOD_MS = 5000;
 
 function appendParamsToUrl(urlStr, params) {
   const url = new URL(urlStr);
@@ -65,4 +69,16 @@ function setSlackStatus(slackToken, statusText, statusEmoji)  {
     .then(handleSlackAPIError(SLACK_SET_STATUS_URL))
     .then(() => ({ previousStatusText, previousStatusEmoji }))
     .catch(e => console.log(e.message));
+}
+
+function setDndFor(token, mins) {
+  return fetch(appendParamsToUrl(SLACK_SET_DND, { token, num_minutes: mins }), {
+    method: 'POST'
+  }).then(handleSlackAPIError(SLACK_SET_DND));
+}
+
+function setDndEnd(token) {
+  return fetch(appendParamsToUrl(SLACK_SET_DND_END, { token }), {
+    method: 'POST'
+  }).then(handleSlackAPIError(SLACK_SET_DND_END));
 }
